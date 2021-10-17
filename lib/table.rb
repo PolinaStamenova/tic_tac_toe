@@ -17,6 +17,7 @@ class Table
   end
 
   def replace_symbol(num, symbol)
+    sleep 1
     @string = @string.gsub(num, symbol)
     display_table
   end
