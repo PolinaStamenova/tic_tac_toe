@@ -1,9 +1,9 @@
 class CreatePlayer
 
-  attr_accessor :player
+  attr_accessor :players
 
-  def initialize
-    @players = []
+  def initialize(players)
+    @players = players
   end
 
   def create_player

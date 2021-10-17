@@ -1,5 +1,5 @@
 class Game
-  def initialize(choose_number, table)
+  def initialize(choose_number, table, )
     @choose_number = choose_number
     @table = table
   end
