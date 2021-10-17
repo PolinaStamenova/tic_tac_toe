@@ -1,6 +1,6 @@
 class CreatePlayer
 
-  # attr_reader :player
+  attr_accessor :player
 
   def initialize
     @players = []
