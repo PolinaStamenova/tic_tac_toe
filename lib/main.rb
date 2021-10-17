@@ -3,6 +3,7 @@ require_relative "player"
 require_relative "create_player"
 require_relative "choose_number"
 require_relative "game"
+require_relative "selected_symbol"
 require_relative "list_players"
 
 
@@ -16,8 +17,9 @@ class App
     @table = Table.new
     @create_player = CreatePlayer.new(@players)
     @choose_number = ChooseNumber.new
-    @players_list = ListPlayers.new(@players)
-    @game = Game.new(@choose_number, @table)
+    # @players_list = ListPlayers.new(@players)
+    @selected_symbol = SelectedSymbol.new(@players)
+    @game = Game.new(@choose_number, @table, @selected_symbol)
   end
 
   def run
@@ -25,8 +27,8 @@ class App
     puts
     sleep 0.5
     @create_player.create_player
-    puts
-    @players_list.list_players
+    # @players_list.list_players
+    # @selected_symbol.choose_symbol
     @table.display_table
     @game.display_game
   end
