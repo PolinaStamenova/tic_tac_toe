@@ -13,11 +13,9 @@ class App
   attr_reader :create_player, :choose_number, :game
 
   def initialize
-    @players = []
     @table = Table.new
     @create_player = CreatePlayer.new(@players)
     @choose_number = ChooseNumber.new
-    # @players_list = ListPlayers.new(@players)
     @selected_symbol = SelectedSymbol.new(@players)
     @game = Game.new(@choose_number, @table, @selected_symbol)
   end
@@ -27,8 +25,6 @@ class App
     puts
     sleep 0.5
     @create_player.create_player
-    # @players_list.list_players
-    # @selected_symbol.choose_symbol
     @table.display_table
     @game.display_game
   end
