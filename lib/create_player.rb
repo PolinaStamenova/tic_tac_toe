@@ -2,8 +2,8 @@ class CreatePlayer
 
   attr_accessor :players
 
-  def initialize(players)
-    @players = players
+  def initialize(params)
+    @players = params
   end
 
   def create_player
@@ -13,7 +13,7 @@ class CreatePlayer
       name = gets.chomp.capitalize
       print "Choose a symbol [x/o]: "
       symbol = gets.chomp
-      player = Player.new(name, symbol)
+      player = Player.new(name: name, symbol: symbol)
       puts
       sleep 0.3
       puts "#{name} plays with #{symbol}"

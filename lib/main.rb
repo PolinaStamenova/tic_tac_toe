@@ -9,12 +9,13 @@ require_relative "list_players"
 
 class App
 
-  attr_accessor :table, :players
-  attr_reader :create_player, :choose_number, :game
+  attr_accessor :table, :players, :create_player, :choose_number, :selected_symbol, :game
 
   def initialize
+    @players = []
     @table = Table.new
     @create_player = CreatePlayer.new(@players)
+    @list_players = ListPlayers.new(@player)
     @choose_number = ChooseNumber.new
     @selected_symbol = SelectedSymbol.new(@players)
     @game = Game.new(@choose_number, @table, @selected_symbol)
@@ -27,6 +28,7 @@ class App
     @create_player.create_player
     @table.display_table
     @game.display_game
+    @list_players.players
   end
 end
 

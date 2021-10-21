@@ -17,11 +17,8 @@ class Table
   end
 
   def replace_symbol(num, symbol)
-    sleep 1
+    sleep 0.5
     @string = @string.gsub(num, symbol)
     display_table
   end
 end
-
-# test = Table.new
-# test.replace_symbol("2","x")
