@@ -1,5 +1,7 @@
 class Winner
 
+  attr_accessor :player_won
+
   def initialize(params)
     @cells = params
     @game_won = false
