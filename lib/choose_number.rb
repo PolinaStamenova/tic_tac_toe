@@ -10,6 +10,6 @@ class ChooseNumber
     puts
     puts "=========================="
     print "Please, choose a number: "
-    @number = gets.chomp
+    @number = gets.chomp.to_i
   end
 end

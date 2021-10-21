@@ -1,24 +1,29 @@
 class Table
 
-  attr_accessor :string
+  attr_accessor :cells
 
   def initialize
-    @string = (1..9).to_a.join        #maybe can find method to create string from 1 to 9
+    @cells = (1..9).to_a       #maybe can find method to create cells from 1 to 9
   end
 
   def display_table
     puts
-    puts "  #{@string[0]} | #{@string[1]} | #{@string[2]}"
+    puts "  #{@cells[0]} | #{@cells[1]} | #{@cells[2]}"
     puts "-------------"
-    puts "  #{@string[3]} | #{@string[4]} | #{@string[5]}"
+    puts "  #{@cells[3]} | #{@cells[4]} | #{@cells[5]}"
     puts "-------------"
-    puts "  #{@string[6]} | #{@string[7]} | #{@string[8]}"
+    puts "  #{@cells[6]} | #{@cells[7]} | #{@cells[8]}"
     puts
   end
 
   def replace_symbol(num, symbol)
     sleep 0.5
-    @string = @string.gsub(num, symbol)
+    @cells[num-1] = symbol
     display_table
   end
+
+  def full?
+    cells.any?(Numeric)
+  end
 end
+

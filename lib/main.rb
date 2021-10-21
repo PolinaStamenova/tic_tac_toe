@@ -5,20 +5,21 @@ require_relative "choose_number"
 require_relative "game"
 require_relative "selected_symbol"
 require_relative "list_players"
-
+require_relative "winner"
 
 class App
 
-  attr_accessor :table, :players, :create_player, :choose_number, :selected_symbol, :game
+  attr_accessor :table, :players, :create_player, :choose_number, :selected_symbol, :game, :winner
 
   def initialize
     @players = []
     @table = Table.new
+    @winner = Winner.new(@table.cells)
     @create_player = CreatePlayer.new(@players)
     @list_players = ListPlayers.new(@player)
     @choose_number = ChooseNumber.new
     @selected_symbol = SelectedSymbol.new(@players)
-    @game = Game.new(@choose_number, @table, @selected_symbol)
+    @game = Game.new(@choose_number, @table, @selected_symbol, @winner)
   end
 
   def run
