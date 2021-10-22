@@ -1,4 +1,4 @@
-class Table
+class Board
 
   attr_accessor :cells
 
@@ -6,7 +6,7 @@ class Table
     @cells = (1..9).to_a       #maybe can find method to create cells from 1 to 9
   end
 
-  def display_table
+  def display_board
     puts
     puts "  #{@cells[0]} | #{@cells[1]} | #{@cells[2]}"
     puts "-------------"
@@ -19,7 +19,7 @@ class Table
   def replace_symbol(num, symbol)
     sleep 0.5
     @cells[num-1] = symbol
-    display_table
+    display_board
   end
 
   def full?

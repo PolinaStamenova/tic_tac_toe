@@ -1,17 +1,17 @@
 class Game
 
 
-  def initialize(choose_number, table, selected_symbol, winner)
+  def initialize(choose_number, board, selected_symbol, winner)
     @choose_number = choose_number
-    @table = table
+    @board = board
     @selected_symbol = selected_symbol
     @winner = winner
   end
 
   def display_game
-    while  @table.full?
+    while  @board.full?
       @choose_number.choose_number
-      @table.replace_symbol(@choose_number.number,  @selected_symbol.choose_symbol)
+      @board.replace_symbol(@choose_number.number,  @selected_symbol.choose_symbol)
       break if  @winner.check_if_win?
     end
   end
