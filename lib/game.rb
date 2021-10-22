@@ -1,6 +1,4 @@
 class Game
-
-
   def initialize(choose_number, board, selected_symbol, winner)
     @choose_number = choose_number
     @board = board
