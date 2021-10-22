@@ -1,14 +1,13 @@
-require_relative "board"
-require_relative "player"
-require_relative "create_player"
-require_relative "choose_number"
-require_relative "game"
-require_relative "selected_symbol"
-require_relative "winner"
-require_relative "display_winner"
+require_relative 'board'
+require_relative 'player'
+require_relative 'create_player'
+require_relative 'choose_number'
+require_relative 'game'
+require_relative 'selected_symbol'
+require_relative 'winner'
+require_relative 'display_winner'
 
 class App
-
   attr_accessor :board, :players, :create_player, :choose_number, :selected_symbol, :game, :winner, :dispay_winner
 
   def initialize
@@ -24,7 +23,7 @@ class App
 
   def run
     puts
-    puts "Play tic-tac-toe"
+    puts 'Play tic-tac-toe'
     puts
     sleep 0.5
     is_runing = true
@@ -34,11 +33,12 @@ class App
       @game.display_game
       @dispay_winner.display_winner(@players, @winner.player_won)
       puts
-      print " Do you want to play one more game? [y/n]: "
+      print ' Do you want to play one more game? [y/n]: '
       answer = gets.chomp
-      if answer == "n"
+      if answer == 'n'
         is_runing = false
-      else run
+      else
+        run
       end
     end
   end

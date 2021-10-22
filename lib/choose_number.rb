@@ -1,5 +1,4 @@
 class ChooseNumber
-
   attr_reader :number
 
   def initialize
@@ -8,8 +7,8 @@ class ChooseNumber
 
   def choose_number
     puts
-    puts "=========================="
-    print "Please, choose a number: "
+    puts '=========================='
+    print 'Please, choose a number: '
     @number = gets.chomp.to_i
   end
 end

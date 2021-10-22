@@ -1,13 +1,12 @@
 class Player
-
   attr_accessor :name, :symbol
 
-  @@id = 0
+  ID = 0
 
   def initialize(params = {})
-    @@id += 1
-    @id = @@id
+    @id = ID
     @name = params[:name]
     @symbol = params[:symbol]
+    ID += 1
   end
 end

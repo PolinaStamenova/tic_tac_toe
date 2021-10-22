@@ -7,10 +7,10 @@ class Game
   end
 
   def display_game
-    while  @board.full?
+    while @board.full?
       @choose_number.choose_number
-      @board.replace_symbol(@choose_number.number,  @selected_symbol.choose_symbol)
-      break if  @winner.check_if_win?
+      @board.replace_symbol(@choose_number.number, @selected_symbol.choose_symbol)
+      break if @winner.check_if_win?
     end
   end
 end

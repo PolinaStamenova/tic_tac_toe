@@ -1,5 +1,4 @@
 class CreatePlayer
-
   attr_accessor :players
 
   def initialize(params)
@@ -18,13 +17,12 @@ class CreatePlayer
   end
 end
 
-
 def user_answer
   puts
-  print "Write your name: "
+  print 'Write your name: '
   name = gets.chomp.capitalize
   symbol = ''
-  until ["x", "o"].include?(symbol)
+  until %w[x o].include?(symbol)
     print 'Choose a symbol [x/o]: '
     symbol = gets.chomp.downcase
   end

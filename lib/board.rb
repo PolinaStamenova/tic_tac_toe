@@ -1,5 +1,4 @@
 class Board
-
   attr_accessor :cells
 
   def initialize
@@ -9,23 +8,24 @@ class Board
   def display_board
     puts
     puts "  #{@cells[0]} | #{@cells[1]} | #{@cells[2]}"
-    puts "-------------"
+    puts '-------------'
     puts "  #{@cells[3]} | #{@cells[4]} | #{@cells[5]}"
-    puts "-------------"
+    puts '-------------'
     puts "  #{@cells[6]} | #{@cells[7]} | #{@cells[8]}"
     puts
   end
 
   def replace_symbol(num, symbol)
     sleep 0.5
-    if @cells[num-1].is_a? Numeric
-       @cells[num-1] = symbol
-    elsif  @cells[num-1].is_a? String
+    case @cells[num - 1]
+    when Numeric
+      @cells[num - 1] = symbol
+    when String
       sleep 0.3
       puts
-      puts "This filed is already choosen, please choose another one"
+      puts 'This filed is already choosen, please choose another one'
       sleep 2
-      @cells[num-1] = @cells[num-1]
+      @cells[num - 1] = @cells[num - 1]
     end
     display_board
   end
@@ -34,4 +34,3 @@ class Board
     cells.any?(Numeric)
   end
 end
-
