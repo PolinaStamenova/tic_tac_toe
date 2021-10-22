@@ -23,13 +23,24 @@ class App
   end
 
   def run
+    puts
     puts "Play tic-tac-toe"
     puts
     sleep 0.5
-    @create_player.create_player
-    @board.display_board
-    @game.display_game
-    @dispay_winner.display_winner(@players, @winner.player_won)
+    is_runing = true
+    while is_runing
+      @create_player.create_player
+      @board.display_board
+      @game.display_game
+      @dispay_winner.display_winner(@players, @winner.player_won)
+      puts
+      print " Do you want to play one more game? [y/n]: "
+      answer = gets.chomp
+      if answer == "n"
+        is_runing = false
+      else run
+      end
+    end
   end
 end
 
