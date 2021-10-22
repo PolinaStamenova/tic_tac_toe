@@ -8,11 +8,7 @@ class CreatePlayer
 
   def create_player
     until @players.length == 2
-      puts
-      print "Write your name: "
-      name = gets.chomp.capitalize
-      print "Choose a symbol [x/o]: "
-      symbol = gets.chomp
+      name, symbol = user_answer
       player = Player.new(name: name, symbol: symbol)
       puts
       sleep 0.3
@@ -20,4 +16,17 @@ class CreatePlayer
       @players << player
     end
   end
+end
+
+
+def user_answer
+  puts
+  print "Write your name: "
+  name = gets.chomp.capitalize
+  symbol = ''
+  until ["x", "o"].include?(symbol)
+    print 'Choose a symbol [x/o]: '
+    symbol = gets.chomp.downcase
+  end
+  [name, symbol]
 end

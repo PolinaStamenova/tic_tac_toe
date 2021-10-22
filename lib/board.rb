@@ -3,7 +3,7 @@ class Board
   attr_accessor :cells
 
   def initialize
-    @cells = (1..9).to_a       #maybe can find method to create cells from 1 to 9
+    @cells = (1..9).to_a
   end
 
   def display_board
@@ -18,7 +18,15 @@ class Board
 
   def replace_symbol(num, symbol)
     sleep 0.5
-    @cells[num-1] = symbol
+    if @cells[num-1].is_a? Numeric
+       @cells[num-1] = symbol
+    elsif  @cells[num-1].is_a? String
+      sleep 0.3
+      puts
+      puts "This filed is already choosen, please choose another one"
+      sleep 2
+      @cells[num-1] = @cells[num-1]
+    end
     display_board
   end
 
