@@ -12,7 +12,8 @@ class Game
 
   def create_player
     until @players.length == 2
-      name, symbol = user_answer
+      name = get_user_name
+      symbol = get_user_symbol
       player = Player.new(name: name, symbol: symbol)
       puts_sleep(' ', 0.3)
       puts "#{name} plays with #{symbol}"
@@ -21,15 +22,18 @@ class Game
     display_game
   end
 
-  def user_answer
-    print "\n", 'Write your name: '
-    name = gets.chomp.capitalize
-    symbol = ''
-    until %w[x o].include?(symbol)
-      print 'Choose a symbol [x/o]: '
+  def get_user_symbol
+    symbol = ""
+    until ["x", "o"].include?(symbol) do
+      print "Choose a symbol [x/o]: "
       symbol = gets.chomp.downcase
     end
-    [name, symbol]
+    symbol
+  end
+
+  def get_user_name
+    print "\n", 'Write your name: '
+    gets.chomp.capitalize
   end
 
   def choose_number
