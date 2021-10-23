@@ -2,10 +2,9 @@ require_relative 'board'
 require_relative 'player'
 require_relative 'game'
 require_relative 'winner'
-require_relative "module"
+require_relative 'module'
 
 class App
-
   include Prints
 
   attr_accessor :game
@@ -15,7 +14,7 @@ class App
   end
 
   def run
-    puts_sleep("Play tic-tac-toe", 0.5)
+    puts_sleep('Play tic-tac-toe', 0.5)
     is_runing = true
     while is_runing
       @game.create_player
