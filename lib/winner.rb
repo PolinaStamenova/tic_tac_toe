@@ -1,14 +1,14 @@
 class Winner
-  attr_accessor :player_won, :combination
+  attr_accessor :player_won, :combination, :cells, :game_won
 
   def initialize(params)
     @cells = params
     @game_won = false
     @player_won = ''
-    @combination = combination
+    # @combination = combination
   end
 
-  def board_construction
+  def check_if_win?
     row_one = @cells.slice(0, 3)
     row_two = @cells.slice(3, 3)
     row_three = @cells.slice(6, 3)
@@ -26,12 +26,12 @@ class Winner
 
     cross = [cross_one, cross_two]
 
-    @combination =  [row, column, cross]
-  end
+    combination =  [row, column, cross]
 
-  def check_if_win?
-    board_construction
-    @combination.each do |elem|
+
+    # def check_if_win?
+    # board_construction
+    combination.each do |elem|
       elem.each do |i|
         if i.all?('x')
           @player_won = 'x'

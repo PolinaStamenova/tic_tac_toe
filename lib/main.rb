@@ -1,43 +1,30 @@
 require_relative 'board'
 require_relative 'player'
-require_relative 'create_player'
-require_relative 'choose_number'
 require_relative 'game'
-require_relative 'selected_symbol'
 require_relative 'winner'
-require_relative 'display_winner'
+require_relative "module"
 
 class App
-  attr_accessor :board, :players, :create_player, :choose_number, :selected_symbol, :game, :winner, :dispay_winner
+
+  include Prints
+
+  attr_accessor :game
 
   def initialize
-    @players = []
-    @board = Board.new
-    @winner = Winner.new(@board.cells)
-    @dispay_winner = DisplayWinner.new
-    @create_player = CreatePlayer.new(@players)
-    @choose_number = ChooseNumber.new
-    @selected_symbol = SelectedSymbol.new(@players)
-    @game = Game.new(@choose_number, @board, @selected_symbol, @winner)
+    @game = Game.new
   end
 
   def run
-    puts
-    puts 'Play tic-tac-toe'
-    puts
-    sleep 0.5
+    puts_sleep("Play tic-tac-toe", 0.5)
     is_runing = true
     while is_runing
-      @create_player.create_player
-      @board.display_board
-      @game.display_game
-      @dispay_winner.display_winner(@players, @winner.player_won)
-      puts
+      @game.create_player
       print ' Do you want to play one more game? [y/n]: '
       answer = gets.chomp
       if answer == 'n'
         is_runing = false
       else
+        @game.reset_game
         run
       end
     end
