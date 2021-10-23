@@ -20,7 +20,7 @@ class Board
       @cells[num - 1] = symbol
     when String
       sleep 0.3
-      puts "\n" ,'This filed is already choosen, please choose another one'
+      puts "\n", 'This filed is already choosen, please choose another one'
       sleep 2
       @cells[num - 1] = @cells[num - 1]
     end
