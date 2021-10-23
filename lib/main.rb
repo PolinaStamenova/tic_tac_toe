@@ -18,7 +18,7 @@ class App
     is_runing = true
     while is_runing
       @game.create_player
-      print ' Do you want to play one more game? [y/n]: '
+      print 'Do you want to play one more game? [y/n]: '
       answer = gets.chomp
       if answer == 'n'
         is_runing = false
