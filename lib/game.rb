@@ -23,13 +23,19 @@ class Game
   end
 
   def get_user_symbol
-    symbol = ""
-    until ["x", "o"].include?(symbol) do
-      print "Choose a symbol [x/o]: "
-      symbol = gets.chomp.downcase
-    end
+    answer =  raise_error_symbol
+  rescue ArgumentError => e
+    puts e.message
+    get_user_symbol
+  end
+
+  def raise_error_symbol
+    print "Choose a symbol [x/o]: "
+    symbol = gets.chomp.downcase
+    raise ArgumentError, "Please, choose a symbol 'x' or 'o'!" unless ["x", "o"].include?(symbol)
     symbol
   end
+
 
   def get_user_name
     print "\n", 'Write your name: '
