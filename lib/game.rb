@@ -21,7 +21,8 @@ class Game
     end
     display_game
   end
-
+# No need of this method the code is even longer and not so understnadable. Isn't is the previous one better?
+# ================================================================================
   def get_user_symbol
     answer =  raise_error_symbol
   rescue ArgumentError => e
@@ -35,7 +36,7 @@ class Game
     raise ArgumentError, "Please, choose a symbol 'x' or 'o'!" unless ["x", "o"].include?(symbol)
     symbol
   end
-
+# ================================================================================
 
   def get_user_name
     print "\n", 'Write your name: '
