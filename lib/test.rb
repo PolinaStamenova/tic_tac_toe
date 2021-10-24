@@ -1,3 +1,4 @@
+require 'colorize'
 
   def choose_number
     print "Choose a number between 1 and 3: "
@@ -14,4 +15,22 @@
     play
   end
 
-p play
+
+  def polina
+    puts "I am now red".red
+    puts "I am now blue".blue
+    puts "Testing".yellow
+    puts "POLINA".green
+  end
+
+# p polina
+
+class String
+  def black;          "\e[30m#{self}\e[0m" end
+  def red;            "\e[31m#{self}\e[0m" end
+end
+
+# p String.new.red("polina")
+puts 'Polina'.red
+
+
