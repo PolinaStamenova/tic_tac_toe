@@ -15,17 +15,20 @@ class Board
 
   def replace_symbol(num, symbol)
     sleep 0.5
-    case @cells[num - 1]
-    when Numeric
+    if @cells[num - 1].is_a? Numeric
       @cells[num - 1] = symbol
-    when String
-      sleep 0.3
-      puts "\n", 'This filed is already choosen, please choose another one'
-      sleep 2
-      @cells[num - 1] = @cells[num - 1]
+    else
+      not_a_numeric
     end
     display_board
-  end
+end
+
+def not_a_numeric
+    sleep 0.3
+    puts "\n", 'This filed is already choosen, please choose another one'
+    sleep 2
+end
+
 
   def full?
     cells.any?(Numeric)
