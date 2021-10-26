@@ -21,16 +21,15 @@ class Board
       not_a_numeric
     end
     display_board
-end
+  end
 
-def not_a_numeric
-    sleep 0.3
-    puts "\n", 'This filed is already choosen, please choose another one'
-    sleep 2
-end
+  def not_a_numeric
+      sleep 0.3
+      puts "\n", 'This filed is already choosen, please choose another one'
+      sleep 2
+  end
 
-
-  def full?
+  def not_full?
     cells.any?(Numeric)
   end
 end

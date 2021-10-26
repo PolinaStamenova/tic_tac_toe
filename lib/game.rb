@@ -14,10 +14,12 @@ class Game
     until @players.length == 2
       name = get_user_name
       symbol = get_user_symbol
-      player = Player.new(name: name, symbol: symbol)
-      puts_sleep(' ', 0.3)
-      puts "#{name} plays with #{symbol}"
-      @players << player
+      if @players.first&.symbol != symbol
+        player = Player.new(name: name, symbol: symbol)
+        puts_sleep(' ', 0.3)
+        puts "#{name} plays with #{symbol}"
+        @players << player
+      end
     end
     display_game
   end
@@ -37,6 +39,11 @@ class Game
     symbol
   end
 # ================================================================================
+
+# def not_the_same_symbol?
+#   @players&.first&.symbol !=  @players.last&.symbol
+# end
+
 
   def get_user_name
     print "\n", 'Write your name: '
@@ -62,7 +69,7 @@ class Game
 
   def display_game
     @board.display_board
-    while @board.full?
+    while @board.not_full?
       @board.replace_symbol(choose_number, choose_symbol)
       break if @winner.check_if_win?
     end
