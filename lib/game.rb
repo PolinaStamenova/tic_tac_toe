@@ -1,7 +1,6 @@
-require_relative 'module'
+require_relative "object_class"
 
 class Game
-  include Prints
 
   def initialize
     @players = []
@@ -85,6 +84,5 @@ class Game
     @winner = Winner.new(@board.cells)
     @players = []
     @previous_symbol = ''
-    @winner.game_won = false
   end
 end

@@ -31,6 +31,7 @@ class String
 end
 
 # p String.new.red("polina")
-puts 'Polina'.red
+# puts 'Polina'.red
 
 
+puts "Jordy".light_magenta

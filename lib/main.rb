@@ -2,10 +2,9 @@ require_relative 'board'
 require_relative 'player'
 require_relative 'game'
 require_relative 'winner'
-require_relative 'module'
+require_relative "object_class"
 
 class App
-  include Prints
 
   attr_accessor :game
 

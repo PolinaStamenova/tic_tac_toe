@@ -3,7 +3,6 @@ class Winner
 
   def initialize(params)
     @cells = params
-    @game_won = false
     @player_won = ''
   end
 
@@ -18,12 +17,12 @@ class Winner
     win_combination.each do |arr|
       if arr.all?('x')
         @player_won = 'x'
-        @game_won = true
+        return true
       elsif arr.all?('o')
         @player_won = 'o'
-        @game_won = true
+        return true
       end
     end
-    @game_won
+    false
   end
 end
