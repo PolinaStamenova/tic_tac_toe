@@ -23,15 +23,3 @@ require 'colorize'
     puts "POLINA".green
   end
 
-# p polina
-
-class String
-  def black;          "\e[30m#{self}\e[0m" end
-  def red;            "\e[31m#{self}\e[0m" end
-end
-
-# p String.new.red("polina")
-# puts 'Polina'.red
-
-
-puts "Jordy".light_magenta
