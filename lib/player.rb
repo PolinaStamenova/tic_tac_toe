@@ -1,17 +1,12 @@
 class Player
-
-  attr_accessor :name, :symbol, :id
+  attr_accessor :name, :symbol
 
   @@id = 0
 
-  def initialize(name, symbol)
-    @@id += 1
+  def initialize(params = {})
     @id = @@id
-    @name = name
-    @symbol = symbol
+    @name = params[:name]
+    @symbol = params[:symbol]
+    @@id += 1
   end
-
 end
-
-# player_one = Player.new("Polina", "x")
-# player_two = Player.new("Polina", "o")

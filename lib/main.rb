@@ -1,32 +1,31 @@
-require_relative "table"
-require_relative "player"
-require_relative "create_player"
-require_relative "choose_number"
-require_relative "game"
-require_relative "selected_symbol"
-require_relative "list_players"
-
+require_relative 'board'
+require_relative 'player'
+require_relative 'game'
+require_relative 'winner'
+require_relative "object_class"
 
 class App
 
-  attr_accessor :table, :players
-  attr_reader :create_player, :choose_number, :game
+  attr_accessor :game
 
   def initialize
-    @table = Table.new
-    @create_player = CreatePlayer.new(@players)
-    @choose_number = ChooseNumber.new
-    @selected_symbol = SelectedSymbol.new(@players)
-    @game = Game.new(@choose_number, @table, @selected_symbol)
+    @game = Game.new
   end
 
   def run
-    puts "Play tic-tac-toe"
-    puts
-    sleep 0.5
-    @create_player.create_player
-    @table.display_table
-    @game.display_game
+    puts_sleep('Play tic-tac-toe', 0.5)
+    is_runing = true
+    while is_runing
+      @game.create_player
+      print 'Do you want to play one more game? [y/n]: '
+      answer = gets.chomp
+      if answer == 'n'
+        is_runing = false
+      else
+        @game.reset_game
+        run
+      end
+    end
   end
 end
 
